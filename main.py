@@ -14,10 +14,11 @@ from flask_migrate import Migrate
 from forms import CommentForm, ContactForm
 from flask_wtf.csrf import CSRFProtect
 from datetime import datetime
+from config import SECRET_KEY, SQLALCHEMY_DATABASE_URI
 
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
+app.config['SECRET_KEY'] = SECRET_KEY
 ckeditor = CKEditor(app)
 Bootstrap5(app)
 login_manager = LoginManager(app)
@@ -25,7 +26,7 @@ gravatar = Gravatar(app, size=30)
 csrf = CSRFProtect(app)
 
 # Connect to DB
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///posts.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = SQLALCHEMY_DATABASE_URI
 db = SQLAlchemy(app)
 
 # Initialize Flask-Migrate
