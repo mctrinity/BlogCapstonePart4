@@ -1,6 +1,7 @@
 instance/*
 dump*
 config.py
+posts*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
